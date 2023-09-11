@@ -21,12 +21,46 @@
 git clone git@github.com:JFrogChina/training.git
 ```
 
-## 实验 1 - maven build & scan demo
+## 实验 1 - maven build 
 可参考：https://jfrog.com/help/r/get-started-with-the-jfrog-platform/quickstart-guide-maven-and-gradle
 
-1. 配置Maven仓库。 
-- 在Artifactory中创建Maven local 仓库，命名为：username-maven-local
-- 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote
-- 在Artifactory中创建Maven virtual 仓库，命名为：username-maven-virtual
-- 
-  
+1. 创建并配置Maven仓库。 
+请将username替换为自己的用户名
+- 在Artifactory中创建Maven local 仓库，命名为：username-maven-local。
+- 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote。
+- 在Artifactory中创建Maven virtual 仓库，命名为：username-maven-virtual。
+- 配置virtual仓库包含username-maven-local，和username-maven-remote。
+2. 安装JFrog CLI
+- 下载JFrog CLI
+- 配置jf c
+- 配置jf mvnc连接Maven仓库
+3. 执行Maven构建
+- 使用jf mvn deploy --build-name=username-maven --build-number=1
+4. 在Artifactory里查看制品和build info
+
+## 实验 2 - Xray扫描Maven漏洞并修复
+1. 配置xray 索引maven仓库username-maven-local
+2. 点击index now立刻出发索引
+3. 在xray->scan list里查看扫描结果，找到log4j-core:1.14.0版本的高危漏洞
+4. 在training/01-Java-Package-Security-Scanning/demo-log4j/pom.xml中将log4j-core版本升级为1.16.0
+```shell
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.0</version>
+		</dependency>
+```
+更改为：
+```shell
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+```
+- 重新执行jf mvn deploy --build-name=username-maven --build-number=2
+- 在xray->scan list中查看新版本中log4j漏洞是否修复。
+
+## 实验3 构建Docker镜像
+
+## 实验4 扫描Docker镜像，在Xray中查看扫描结果
