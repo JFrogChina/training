@@ -12,15 +12,21 @@
 ## 准备
 1. 获取Artifactory 账号 
 
-username/password = Labuser1/xxxxxx, Labuser2/xxxxxx ...
+    username/password = Labuser1/xxxxxx, Labuser2/xxxxxx ...
 以上由现场工作人员提供。 
 
-浏览器访问：http://demo.jfrogchina.com，进行登录。
+    浏览器访问：http://demo.jfrogchina.com，进行登录。
 2. 获取实验代码
 ```shell
-git clone git@github.com:alexwang66/eplus-training.git
+git clone git@github.com:JFrogChina/training.git
 ```
 
 ## 实验 1 - maven build & scan demo
+可参考：https://jfrog.com/help/r/get-started-with-the-jfrog-platform/quickstart-guide-maven-and-gradle
 
-                
+1. 配置Maven仓库。 
+- 在Artifactory中创建Maven local 仓库，命名为：username-maven-local
+- 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote
+- 在Artifactory中创建Maven virtual 仓库，命名为：username-maven-virtual
+- 
+  
