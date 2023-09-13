@@ -26,7 +26,7 @@ git clone git@github.com:JFrogChina/training.git
 ## 实验 1 - maven build 
 
 1. 创建并配置Maven仓库。 
-请将username替换为自己的用户名
+
 - 在Artifactory中创建Maven local 仓库，命名为：username-maven-local。
 ![img_3.png](images/img_3.png)
 - 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote。
