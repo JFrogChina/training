@@ -11,11 +11,11 @@
         
 ## 准备
 1. 获取Artifactory 账号 
+- 访问：https://jfrog.com/start-free/
+- 使用公司邮箱进行注册，注册后会收到一封确认邮件：
+![img_7.png](img_7.png)
+- 点击Environment URL并设置初始密码，即可开始使用。
 
-    username/password = Labuser1/xxxxxx, Labuser2/xxxxxx ...
-以上由现场工作人员提供。 
-
-    浏览器访问：http://demo.jfrogchina.com，进行登录。
 2. 获取实验代码
 ```shell
 git clone git@github.com:JFrogChina/training.git
