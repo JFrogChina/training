@@ -27,9 +27,16 @@ git clone git@github.com:JFrogChina/training.git
 1. 创建并配置Maven仓库。 
 请将username替换为自己的用户名
 - 在Artifactory中创建Maven local 仓库，命名为：username-maven-local。
+![img_3.png](img_3.png)
 - 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote。
+![img_4.png](img_4.png)
 - 在Artifactory中创建Maven virtual 仓库，命名为：username-maven-virtual。
+![img_5.png](img_5.png)
+
 - 配置virtual仓库包含username-maven-local，和username-maven-remote。
+- 配置virtual仓库的deploy repository为username-maven-local。
+![img_6.png](img_6.png)
+
 2. 安装JFrog CLI
 - 下载JFrog CLI
 - 配置jf c
@@ -62,5 +69,13 @@ git clone git@github.com:JFrogChina/training.git
 - 在xray->scan list中查看新版本中log4j漏洞是否修复。
 
 ## 实验3 构建Docker镜像
-
+- 创建Docker local，remote，virtual镜像仓库，分别命名为username-docker-local,username-docker-remote,username-docker-virtual.
+- 配置username-docker-virtual,仓库包含 username-docker-local, 和username-docker-remote仓库。
+- 配置username-docker-virtual的deployment repository为username-docker-local。
+- 执行docker构建：
+```shell
+docker login your-account.jfrog.io
+docker tag docker-app your-account.jfrog.io/username-docker-virtual/docker-app
+docker push your-account.jfrog.io/username-docker-virtual/docker-app
+```
 ## 实验4 扫描Docker镜像，在Xray中查看扫描结果
