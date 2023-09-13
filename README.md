@@ -15,14 +15,15 @@
 - 使用公司邮箱进行注册，注册后会收到一封确认邮件：
 ![img_7.png](images/img_7.png)
 - 点击Environment URL并设置初始密码，即可开始使用。
-
+此环境JFrog将为您保留14天。
+- 
 2. 获取实验代码
+
 ```shell
 git clone git@github.com:JFrogChina/training.git
 ```
 
 ## 实验 1 - maven build 
-可参考：https://jfrog.com/help/r/get-started-with-the-jfrog-platform/quickstart-guide-maven-and-gradle
 
 1. 创建并配置Maven仓库。 
 请将username替换为自己的用户名
