@@ -16,7 +16,7 @@
 ![img_7.png](images/img_7.png)
 - 点击Environment URL并设置初始密码，即可开始使用。
 此环境JFrog将为您保留14天。
-- 
+
 2. 获取实验代码
 
 ```shell
