@@ -13,7 +13,7 @@
 1. 获取Artifactory 账号 
 - 访问：https://jfrog.com/start-free/
 - 使用公司邮箱进行注册，注册后会收到一封确认邮件：
-![img_7.png](img_7.png)
+![img_7.png](images/img_7.png)
 - 点击Environment URL并设置初始密码，即可开始使用。
 
 2. 获取实验代码
@@ -27,15 +27,15 @@ git clone git@github.com:JFrogChina/training.git
 1. 创建并配置Maven仓库。 
 请将username替换为自己的用户名
 - 在Artifactory中创建Maven local 仓库，命名为：username-maven-local。
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 - 在Artifactory中创建Maven remote 仓库，命名为：username-maven-remote。
-![img_4.png](img_4.png)
+![img_4.png](images/img_4.png)
 - 在Artifactory中创建Maven virtual 仓库，命名为：username-maven-virtual。
-![img_5.png](img_5.png)
+![img_5.png](images/img_5.png)
 
 - 配置virtual仓库包含username-maven-local，和username-maven-remote。
 - 配置virtual仓库的deploy repository为username-maven-local。
-![img_6.png](img_6.png)
+![img_6.png](images/img_6.png)
 
 2. 安装JFrog CLI
 - 下载JFrog CLI
