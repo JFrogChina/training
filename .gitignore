@@ -19,7 +19,7 @@ target/
 bin/
 .svn
 *.iml
-
+**/.vscode/
 # Numerous always-ignore extensions
 *.bak
 *.patch
