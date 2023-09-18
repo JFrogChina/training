@@ -46,6 +46,51 @@ git clone git@github.com:JFrogChina/training.git
 - 使用jf mvn deploy --build-name=username-maven --build-number=1
 4. 在Artifactory里查看制品和build info
 
+
+如果发现构建错误：
+```shell
+[ERROR] No plugin found for prefix 'archetype' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/Users/wangqjfrog.com/.m2/repository), central (https://alexwang666666.jfrog.io/artifactory/alex-libs-release), snapshots (https://alexwang666666.jfrog.io/artifactory/alex-libs-snapshot)] -> [Help 1]
+```
+原因：本机网络连接jcenter或者maven 官方源不稳定。
+解决办法：在settengs.xml文件最末处增加maven mirror仓库，代码如下：
+```shell
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    ......
+    ......
+    ......
+  <mirrors>
+     <mirror>
+           <id>alimaven</id>
+           <name>aliyun maven</name>
+           <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+           <mirrorOf>central</mirrorOf>
+     </mirror>
+     <mirror>
+           <id>UK</id>
+           <name>UK Central</name>
+           <url>http://uk.maven.org/maven2</url>
+           <mirrorOf>central</mirrorOf>
+     </mirror>
+     <mirror>
+           <id>ibiblio.org</id>
+           <name>ibiblio Mirror of http://repo1.maven.org/maven2/</name>
+           <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+           <mirrorOf>central</mirrorOf>
+           <!-- United States, North Carolina -->
+     </mirror>
+     <mirror>
+         <id>jboss-public-repository-group</id>
+         <mirrorOf>central</mirrorOf>
+         <name>JBoss Public Repository Group</name>
+         <url>http://repository.jboss.org/nexus/content/groups/public</url>
+     </mirror>
+  </mirrors>
+</settings>
+```
+再次执行mvn命令即可。
+
 ## 实验 2 - Xray扫描Maven漏洞并修复
 1. 配置xray 索引maven仓库username-maven-local
 2. 点击index now立刻出发索引

@@ -2,13 +2,13 @@
 .idea/workspace.xml
 .fleet/
 .idea/dictionaries/myj.xml
-.idea/
+**/.idea/
 .DS_Store
 *.classpath
 *.project
 .settings
 .project
-.target
+**/.target
 .classpath
 **/.settings
 **/.classpath
