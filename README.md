@@ -117,7 +117,7 @@ cd my-app
 jf mvn clean install --build-name maven-demo --build-number 1.1
 jf rt bp maven-demo 1.1 # 此处需要和上面构建时的build对应
 ```
-6. 在 **Artifactory -> Builds** 或**Scan List -> Builds** 查看扫描结果，找到log4j-core:1.14.0版本的高危漏洞
+6. 在 **Artifactory -> Builds** 或**Scan List -> Builds** 查看扫描结果，找到log4j-core:2.14.0版本的高危漏洞
 ![](images/image-12.png)
 
 7. 根据修复提示，将示例项目的 POM 文件的 log4j-core版本升级为2.16.0
