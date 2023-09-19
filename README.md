@@ -143,19 +143,19 @@ jf rt bp maven-demo 1.1 # 此处需要和上面构建时的build对应
 1. 将示例项目的 POM 文件的 log4j-core版本降级为2.14.0，并重新打包构建
 2. 使用以下 Dockerfile，用来制作带有漏洞的基础镜像
 ```Dockerfile
-FROM chengp.jfrog.io/pan-docker/hello-world
+FROM <yourname>.jfrog.io/<prefix>-docker/busybox
 COPY target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar /tmp
 ```
 3. 制作镜像，并推送到 Docker 仓库
 ```sh
-docker build -t <yourname>.jfrog.io/<yourname>-docker/base-image:1.0 .
-docker push <yourname>.jfrog.io/<yourname>-docker/base-image:1.0
+docker build -t <yourname>.jfrog.io/<prefix>-docker/base-image:1.0 .
+docker push <yourname>.jfrog.io/<prefix>-docker/base-image:1.0
 ```
 4. 修改全局策略阻断致命级别漏洞的制品下载，并保存
 ![](images/image-16.png)
 
 5. 再次尝试拉取该镜像，观察结果
 ```sh
-docker pull <yourname>.jfrog.io/<yourname>-docker/base-image:1.0
+docker pull <yourname>.jfrog.io/<prefix>-docker/base-image:1.0
 ```
 ![Alt text](images/image-17.png)
