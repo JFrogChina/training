@@ -28,7 +28,8 @@
 -  Maven >= 3.5.3
 -  Docker Client >= 20.10.6
 
-## 實驗 1 - Maven build intergration
+## 實驗 1 - Maven build integration
+![img.png](images/img-18.png)
 
 1. 訪問您申請的雲環境，在 **Get Started** 欄目選擇 Maven Package 型別進行倉庫的建立
 ![](images/image.png)
@@ -116,7 +117,7 @@ cd my-app
 jf mvn clean install --build-name maven-demo --build-number 1.1
 jf rt bp maven-demo 1.1 # 此處需要和上面構建時的build對應
 ```
-6. 在 **Artifactory -> Builds** 或**Scan List -> Builds** 檢視掃描結果，找到log4j-core:1.14.0版本的高危漏洞
+6. 在 **Artifactory -> Builds** 或**Scan List -> Builds** 檢視掃描結果，找到log4j-core:2.14.0版本的高危漏洞
 ![](images/image-12.png)
 
 7. 根據修復提示，將示例專案的 POM 檔案的 log4j-core版本升級為2.16.0
@@ -131,6 +132,7 @@ jf rt bp maven-demo 1.1 # 此處需要和上面構建時的build對應
 ![](images/image-14.png)
 
 ## 實驗 4 - Docker build intergration
+![img.png](images/img-19.png)
 1. 在 **Get Started** 欄目點選`Redo`選擇 Docker Package 型別進行倉庫的建立
 2. 建立完成後，點選`Continue`，之後選擇`Docker Client`方式進行整合。
 3. 跟隨指引程式完成第二步 Docker Package 的拉取和推送。
@@ -141,19 +143,19 @@ jf rt bp maven-demo 1.1 # 此處需要和上面構建時的build對應
 1. 將示例專案的 POM 檔案的 log4j-core版本降級為2.14.0，並重新打包構建
 2. 使用以下 Dockerfile，用來製作帶有漏洞的基礎映象
 ```Dockerfile
-FROM chengp.jfrog.io/pan-docker/hello-world
+FROM <yourname>.jfrog.io/<prefix>-docker/busybox
 COPY target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar /tmp
 ```
 3. 製作映象，並推送到 Docker 倉庫
 ```sh
-docker build -t <yourname>.jfrog.io/<yourname>-docker/base-image:1.0 .
-docker push <yourname>.jfrog.io/<yourname>-docker/base-image:1.0
+docker build -t <yourname>.jfrog.io/<prefix>-docker/base-image:1.0 .
+docker push <yourname>.jfrog.io/<prefix>-docker/base-image:1.0
 ```
 4. 修改全域性策略阻斷致命級別漏洞的製品下載，並儲存
 ![](images/image-16.png)
 
 5. 再次嘗試拉取該映象，觀察結果
 ```sh
-docker pull <yourname>.jfrog.io/<yourname>-docker/base-image:1.0
+docker pull <yourname>.jfrog.io/<prefix>-docker/base-image:1.0
 ```
 ![Alt text](images/image-17.png)
