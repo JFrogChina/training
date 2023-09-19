@@ -28,7 +28,8 @@
 -  Maven >= 3.5.3
 -  Docker Client >= 20.10.6
 
-## 实验 1 - Maven build intergration
+## 实验 1 - Maven build integration
+![img.png](images/img-18.png)
 
 1. 访问您申请的云环境，在 **Get Started** 栏目选择 Maven Package 类型进行仓库的创建
 ![](images/image.png)
@@ -131,6 +132,7 @@ jf rt bp maven-demo 1.1 # 此处需要和上面构建时的build对应
 ![](images/image-14.png)
 
 ## 实验 4 - Docker build intergration
+![img.png](images/img-19.png)
 1. 在 **Get Started** 栏目点击`Redo`选择 Docker Package 类型进行仓库的创建
 2. 创建完成后，点击`Continue`，之后选择`Docker Client`方式进行集成。
 3. 跟随指引程序完成第二步 Docker Package 的拉取和推送。
