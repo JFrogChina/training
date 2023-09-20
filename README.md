@@ -1,5 +1,5 @@
 
-# Workshop Guide
+# JFrog Workshop Guide
 
 ## 實驗過程
 1. 開發者透過申請JFrog Platform 雲環境快速完成環境準備。
